@@ -28,6 +28,7 @@
 #include "dynobench/acrobot.hpp"
 #include "dynobench/car.hpp"
 #include "dynobench/car2.hpp"
+#include "dynobench/dingo_diff_drive.hpp"
 #include "dynobench/integrator1_2d.hpp"
 #include "dynobench/integrator2_2d.hpp"
 #include "dynobench/joint_robot.hpp"
@@ -62,6 +63,8 @@ std::unique_ptr<Model_robot> robot_factory(const char *file,
     return std::make_unique<Model_unicycle1>(file, p_lb, p_ub);
   } else if (dynamics == "unicycle2") {
     return std::make_unique<Model_unicycle2>(file, p_lb, p_ub);
+  } else if (dynamics == "dingo_diff_drive") {
+    return std::make_unique<Model_dingo_diff_drive>(file, p_lb, p_ub);
   } else if (dynamics == "quad2d") {
     return std::make_unique<Model_quad2d>(file, p_lb, p_ub);
   } else if (dynamics == "quad3d") {

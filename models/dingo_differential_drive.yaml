@@ -1,9 +1,11 @@
-dynamics: "unicycle1"
+dynamics: "dingo_diff_drive"
 max_vel: 1.3
 min_vel: -1.3
 max_angular_vel: 5.405405405405406
 min_angular_vel: -5.405405405405406
 size: [0.551, 0.517]
-distance_weights: [1, 0.5]
+distance_weights: [1, 1, 0.5, 0.5]  # [position_L2, theta, linear_vel, angular_vel]
 shape: "box"
 dt: 0.05
+tau_v: 0.05   # Linear velocity time constant approx. equal to motion primitive dt (fast response)
+tau_w: 0.03   # Angular velocity time constant < motion primitive dt (very fast response)
